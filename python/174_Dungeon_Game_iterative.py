@@ -10,6 +10,7 @@ class Solution:
     def calculateMinimum(self, dungeon):
         row = len(dungeon)
         col = len(dungeon[0])
+        #存储所有格子需要的最低血量
         HPs = []
         for rowi in range(row-1, -1, -1):
             HP = []
