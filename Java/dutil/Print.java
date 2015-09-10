@@ -25,6 +25,14 @@ public class Print{
         }
         System.out.println();
     }
+    public static void print(int[][] ress){
+        for(int[] res:ress){
+            for(int i:res){
+                System.out.print(i+",");
+            }
+            System.out.println();
+        }
+    }
     public static void print(char res){
          System.out.println(res);
     }

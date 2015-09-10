@@ -5,18 +5,26 @@ import java.io.InputStream;
 import java.io.PrintStream;
 import dutil.Print;
 
-public class Test {
-    public static final boolean DEBUG = false;// I/O through console if debugging
-    public static final boolean STDOUT = true;
-    public static final boolean STDINPUT = false;
-    private static String file;
+/**
+    Test template
+    You just need to extends Test and overrite method solve() and run()
+    then call run() or run(file) in your main entry.
+*/
+public abstract class Test {
+    public static boolean DEBUG = false;// I/O through console if debugging
+    public static boolean STDOUT = true;
+    public static boolean STDINPUT = false;
+    public static String file;
     private static FileInputStream in;
     private static PrintStream out;
     private static InputStream stdin;
     private static PrintStream stdout;
-    private static Test t=new Test();// in case if I need to new an inner class
-    public static void main(String[] args){
-        file="in";
+    public void run(){
+        run("in");
+    }
+    
+    public void run(String inputfile){
+        file=inputfile;
         if(!DEBUG){
             try{
                 redirectStream();
@@ -34,8 +42,7 @@ public class Test {
     }
     
     // solve is for solving a single case
-    public static void solve(Scanner sc){
-    }
+    protected abstract void solve(Scanner sc);
     
     public static void redirectStream() throws Exception{
         if(file != null){
