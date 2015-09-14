@@ -8,20 +8,21 @@ You may assume that each input would have exactly one solution.
 Input: numbers={2, 7, 11, 15}, target=9
 Output: index1=1, index2=2
 */
-//~548ms
+//~312ms
 public class Solution {
     public int[] twoSum(int[] numbers, int target) {
-    	int[] result={0,0};
-    	int i=0,j=0,k;
-    	for(i=1;i<numbers.length;i++){
-    		k=target-numbers[i];
-    		for(j=0;j<i;j++){
-    			if(numbers[j]==k)break;
-    		}
-    		if(j<i)break;
-    	}
-    	result[0]=j+1;
-    	result[1]=i+1;
-    	return result;
+        HashMap<Integer, Integer> map=new HashMap<Integer, Integer>();
+        for(int i=0;i<numbers.length;i++){
+            map.put(target-numbers[i], i);
+        }
+        for(int i=0;i<numbers.length;i++){
+            if(map.containsKey(numbers[i])){
+                int v = map.get(numbers[i]);
+                if(v!=i){
+                    return new int[]{i+1, v+1};
+                }
+            }
+        }
+        return null;
     }
 }
