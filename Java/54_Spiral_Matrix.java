@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
 /*
-从51很容易改成52
+最原始的模拟法。本题无论如何都必须要访问所有元素位置，所以时间复杂度下限是O(n)
 */
 public class Solution {
     public List<Integer> spiralOrder(int[][] matrix) {
