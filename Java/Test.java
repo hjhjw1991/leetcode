@@ -15,36 +15,33 @@ public abstract class Test {
     public static boolean STDOUT = true;
     public static boolean STDINPUT = false;
     public static String file;
+    public static Scanner sc;
     private static FileInputStream in;
     private static PrintStream out;
     private static InputStream stdin;
     private static PrintStream stdout;
-    public void run(){
+    
+    //solves are related to concrete problems.
+    public abstract void solve();
+    protected abstract void solve(Scanner sc);
+    
+    //run on file 'in' with standard output
+    public void debug(){
         run("in");
     }
     
     public void run(String inputfile){
-        file=inputfile;
+        file = inputfile;
         if(!DEBUG){
             try{
-                redirectStream();
+                redirectStream(file);
             }catch(Exception e){
                 return;
             }
         }
-        
-        // below is related to concrete problems
-        Scanner sc = new Scanner(System.in);
-        int T = sc.nextInt();
-        for(int i=1;i<=T;i++){
-            solve(sc);
-        }
     }
     
-    // solve is for solving a single case
-    protected abstract void solve(Scanner sc);
-    
-    public static void redirectStream() throws Exception{
+    public static void redirectStream(String file) throws Exception{
         if(file != null){
             stdin = System.in;
             stdout = System.out;
