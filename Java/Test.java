@@ -27,11 +27,22 @@ public abstract class Test {
     
     //run on file 'in' with standard output
     public void debug(){
-        run("in");
+        DEBUG = false;
+        STDOUT = true;
+        STDINPUT = false;
+        file = "in";
+        setup();
+    }
+    public void noDebug(String inputfile){
+        DEBUG = false;
+        STDOUT = false;
+        STDINPUT = false;
+        file = inputfile;
+        if(file==null)throw new IllegalArgumentException();
+        setup();
     }
     
-    public void run(String inputfile){
-        file = inputfile;
+    private void setup(){
         if(!DEBUG){
             try{
                 redirectStream(file);

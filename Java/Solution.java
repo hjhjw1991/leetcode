@@ -18,6 +18,7 @@ public class Solution extends Test{
     public static void main(String[] args){
         Solution so = new Solution();
         so.debug();
+        //so.noDebug("2");
         so.solve();
     }
 }
