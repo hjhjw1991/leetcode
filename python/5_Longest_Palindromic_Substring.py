@@ -14,7 +14,7 @@ class Solution:
                 p[cur]=min(p[anchor-(cur-anchor)],p[anchor]-(cur-anchor))
             else:
                 p[cur]=1
-            while cur+p[cur]<length and news[cur+p[cur]]==news[cur-p[cur]]:
+            while cur>=p[cur] and cur+p[cur]<length and news[cur+p[cur]]==news[cur-p[cur]]:
                 p[cur]=p[cur]+1
             if p[anchor]+anchor<p[cur]+cur:
                 anchor=cur
