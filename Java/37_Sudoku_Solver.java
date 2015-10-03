@@ -5,8 +5,9 @@ public class Solution {
         // states
         boolean[][] row = new boolean[9][9];
         boolean[][] col = new boolean[9][9];
-        boolean[][] block = new boolean[9][9];
-        for(int i =0;i<9;i++){
+        boolean[][] block = new boolean[9][9];//存储填写状态
+        // 总体思路是回溯法解棋盘，当有任何一个解则返回true，若无解则返回false
+        for(int i =0;i<9;i++){//初始化填写状态
             for(int j=0;j<9;j++){
                 char c = board[i][j];
                 if( c== '.') continue;
@@ -18,21 +19,24 @@ public class Solution {
         }
         solve(board,0,0,row,col,block);
     }
+    
+    //需要同时传递棋盘和数字填写状态
     public boolean solve(char[][] board,int i,int j,boolean[][] row,boolean[][] col,boolean[][] block){
-        if(i == board.length) return true;
-        if(j == board[0].length) return solve(board,i+1,0,row,col,block);
-        if(board[i][j] != '.') return solve(board,i,j+1,row,col,block);
+        if(i == board.length) return true;// 如果到达棋盘外
+        if(j == board[0].length) return solve(board,i+1,0,row,col,block);// 如果到达棋盘最右边
+        if(board[i][j] != '.') return solve(board,i,j+1,row,col,block);// 如果当前位置不可填写
+        //从1到9依次尝试填写到当前位置
         for(int num=0;num<9;num++){
-            if(row[i][num]||col[j][num]||block[(i/3)*3+j/3][num]) continue;
-            board[i][j] = (char) ('1'+num);
+            if(row[i][num]||col[j][num]||block[(i/3)*3+j/3][num]) continue;// 如果该数字已经填过则跳过
+            board[i][j] = (char) ('1'+num);//填写数字
             row[i][num]=true;
             col[j][num]=true;
-            block[(i/3)*3+j/3][num] = true;
-            if(solve(board,i,j+1,row,col,block)) return true;
-            board[i][j] = '.';
+            block[(i/3)*3+j/3][num] = true;//修改状态
+            if(solve(board,i,j+1,row,col,block)) return true;//尝试下一格
+            board[i][j] = '.';//恢复棋盘
             row[i][num]=false;
             col[j][num]=false;
-            block[(i/3)*3+j/3][num] = false;
+            block[(i/3)*3+j/3][num] = false;//恢复填写状态
         }
         return false;
     }

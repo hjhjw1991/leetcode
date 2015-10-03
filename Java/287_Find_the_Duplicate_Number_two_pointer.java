@@ -1,4 +1,5 @@
 public class Solution {
+    // 1 ms
     public int findDuplicate(int[] nums) {
         // regard nums as a linked list
         // the index is pointing to the next node
