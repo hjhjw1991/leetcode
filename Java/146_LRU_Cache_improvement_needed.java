@@ -1,4 +1,7 @@
 public class LRUCache {
+    // it is very easy to understand.
+    // but time-taking.
+    // Double Linked List will help
 class Element {
     int key;
     int value;
