@@ -2,6 +2,17 @@ public class Solution {
     // using DFA state machine
     // there are 11 states, including the start state and two stop states.
     // return false is the false stop. stat 7 is the true stop
+    
+    // 使用DFA可以画出所有的状态和转移，注意不要遗漏正负号、e指数、空格和小数点的输入，注意某些特殊格式的判定：
+    // e false
+    // e1 false
+    // 1e false
+    // 005047e+6 true
+    // 46. true
+    // 46.e3 true
+    // .3e2 true
+    // 3e2. true
+    // 3e2.3 false
     public boolean isNumber(String s) {
         if(s==null||s.length()<1)return false;
         char[] digits = s.toCharArray();
