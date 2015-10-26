@@ -10,9 +10,9 @@
 import re,os
 root = r'.'
 
-Java = root+r'\Java'
-Python = root+r'\Python'
-Cpp = root+r'\CPP'
+Java = root+r'/Java'
+Python = root+r'/Python'
+Cpp = root+r'/CPP'
 
 def getFileList(path):
     assert os.path.isdir(path), "Not a directory!"
