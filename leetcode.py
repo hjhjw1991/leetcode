@@ -1,12 +1,12 @@
-#!/bin/python
-# encoding=utf-8
+#!/usr/bin/env python
+# -*- coding:utf-8 -*-
 
-'''
+"""
 本文件帮助列出所在目录的指定目录下所有Leetcode源代码的名字
 包括两种功能: 列出某目录下所有缺少的序号，列出某目录下所有不以序号开头的文件的名字
 目前我只是用于统计缺失的内容
 要求源代码按照 序号_名字.extension的格式命名,空格用下划线代替
-'''
+"""
 
 import re,os
 root = r'.'
