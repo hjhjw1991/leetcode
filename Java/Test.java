@@ -51,7 +51,9 @@ public abstract class Test {
             }
         }
     }
-    
+    /**
+    @param file set input and output using $file with extension ".in" and ".out"
+    */
     public static void redirectStream(String file) throws Exception{
         if(file != null){
             stdin = System.in;
