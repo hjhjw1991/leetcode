@@ -9,6 +9,7 @@
 """
 
 import re,os
+# from argparser import argparser
 root = r'.'
 
 Java = root+r'/Java'
@@ -17,8 +18,11 @@ Cpp = root+r'/CPP'
 
 def getFileList(path):
     assert os.path.isdir(path), "Not a directory!"
+    cur = os.getcwd()
     os.chdir(path)
-    return os.listdir('./')
+    ret = os.listdir('./')
+    os.chdir(cur)
+    return ret
     
 def dispSource(path=Java):
     list = getFileList(path)
@@ -58,7 +62,7 @@ def getMyList(self, width=10):
         res += "\n"
     return res
 
-# 重新定义了list类型，重写__str__方法，因为原list类型无法直接绑定__str__方法
+# 重新定义了list类型，重写__str__方法，原list类型无法直接绑定__str__方法
 class mylist(list):
     def setTotal(self, total=0):
         self.total = total
@@ -69,6 +73,6 @@ class mylist(list):
 
 if __name__=='__main__':
     dispSource(Java)
-    #dispSource(Python)
-    #dispSource(Cpp)
-    #dispNames(Cpp)
+    # dispSource(Python)
+    # dispSource(Cpp)
+    # dispNames(Cpp)
