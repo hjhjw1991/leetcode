@@ -13,39 +13,39 @@ class Solution:
             return head
         dummy=ListNode(0)
         dummy.next=head
-        cur=dummy.next
+        cur=dummy.__next__
         i=1
         start=dummy
         while i<m and cur:
             start=cur
-            cur=cur.next
+            cur=cur.__next__
             i+=1
         if cur:
             stop=cur
-            runner=cur.next
+            runner=cur.__next__
             while i<n and runner:
-                p=runner.next
+                p=runner.__next__
                 runner.next=cur
                 cur=runner
                 runner=p
                 i+=1
             stop.next=runner
             start.next=cur
-        return dummy.next
+        return dummy.__next__
         
 def printList(head):
     if not head:
-        print "None"
-    while head.next:
-        print head.val,"->",
-        head=head.next
-    print head.val
+        print("None")
+    while head.__next__:
+        print(head.val,"->", end=' ')
+        head=head.__next__
+    print(head.val)
     
 so=Solution()
 h=head=ListNode(1)
 for i in range(2,6):
     h.next=ListNode(i)
-    h=h.next
+    h=h.__next__
 head=so.reverseBetween(head, -1, 3)
 printList(head)
 head=so.reverseBetween(head, 2, 2)

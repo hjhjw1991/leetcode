@@ -22,4 +22,4 @@ test=[
     ['a', 'aa'],
     ['ab','abb','abc'],
     ['aba','abb','abc']]
-print map(s.longestCommonPrefix, test)
+print((list(map(s.longestCommonPrefix, test))))

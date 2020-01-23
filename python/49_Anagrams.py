@@ -10,7 +10,7 @@ class Solution:
             else:
                 result[key] = [str]
 
-        for re in result.values():
+        for re in list(result.values()):
             if len(re) > 1:
                 output += re
 

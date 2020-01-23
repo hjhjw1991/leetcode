@@ -18,9 +18,9 @@ class Solution:
             if s[:i] == s[:i][::-1] and s[i:] == s[i:][::-1]:
                 return 1
         isPalindrome=[[False] * (j + 1) for j in range(length)]
-        dp=range(length)+[-1]
-        for r in xrange(length):
-            for m in xrange(r,-1,-1):
+        dp=list(range(length))+[-1]
+        for r in range(length):
+            for m in range(r,-1,-1):
                 if s[m]==s[r] and (r-m<2 or isPalindrome[r-1][m+1]):
                     isPalindrome[r][m]=True
                     dp[r]=min(dp[r], dp[m-1]+1)
@@ -32,7 +32,7 @@ class Test(unittest.TestCase):
         self.s=Solution()
         
     def tearDown(self):
-        print "TestComplete"
+        print("TestComplete")
         
     def genTestCase(self):
         case=[
@@ -49,9 +49,9 @@ class Test(unittest.TestCase):
     def test(self):
         self.genTestCase()
         for case in self.cases:
-            print "testcase: ", case
+            print(("testcase: ", case))
             res=self.s.solve(case)
-            print "result: ",res
+            print(("result: ",res))
             # if assert is needed
             
 unittest.main()

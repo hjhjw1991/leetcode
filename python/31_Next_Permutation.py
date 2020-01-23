@@ -31,7 +31,7 @@ class Solution:
             nums[left],nums[right]=nums[right],nums[left]
             left+=1
             right-=1
-        print nums
+        print(nums)
         
 class Test(unittest.TestCase):
     #override
@@ -39,7 +39,7 @@ class Test(unittest.TestCase):
         self.s=Solution()
         
     def tearDown(self):
-        print "TestComplete"
+        print("TestComplete")
         
     def genTestCase(self):
         case=[
@@ -54,9 +54,9 @@ class Test(unittest.TestCase):
     def test(self):
         self.genTestCase()
         for case in self.cases:
-            print "testcase: ", case
+            print(("testcase: ", case))
             res=self.s.solve(case)
-            print "result: ",res
+            print(("result: ",res))
             # if assert is needed
             
 unittest.main()

@@ -6,7 +6,7 @@ class Solution:
         dic = {"A":1, "C":2, "G":3, "T":4}
         dicDNA = {}
         num = 1
-        for i in xrange(len(s)):
+        for i in range(len(s)):
             num = (num*4 + dic[s[i]]) & 0XFFFFF
             if i < 9:
                 continue

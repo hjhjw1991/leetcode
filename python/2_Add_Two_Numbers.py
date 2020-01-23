@@ -21,23 +21,23 @@ class Solution:
             s.val = s.val%10
             p.next = s
             p = s
-            l1 = l1.next
-            l2 = l2.next
+            l1 = l1.__next__
+            l2 = l2.__next__
         while l1 is not None:
             s = ListNode(l1.val + c)
             c = s.val/10
             s.val = s.val%10
             p.next = s
             p = s
-            l1 = l1.next
+            l1 = l1.__next__
         while l2 is not None:
             s = ListNode(l2.val + c)
             c = s.val/10
             s.val = s.val%10
             p.next = s
             p = s
-            l2 = l2.next
+            l2 = l2.__next__
         if c > 0:
             s = ListNode(c)
             p.next = s
-        return h.next
+        return h.__next__

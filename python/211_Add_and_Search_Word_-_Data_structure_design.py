@@ -22,7 +22,7 @@ class WordDictionary:
 		trieNow=trie
 		if not trie or not word:
 			return False
-		for i in xrange(len(word)):
+		for i in range(len(word)):
 			char=word[i]
 			if char not in trieNow.char and char != ".":
 				return False
@@ -45,10 +45,10 @@ if __name__ =="__main__":
     wordDictionary.addWord("a")
     wordDictionary.addWord("dad")
     wordDictionary.addWord("mad")
-    print wordDictionary.search(".a")
-    print wordDictionary.search("..d")
-    print wordDictionary.search(".a.")
-    print wordDictionary.search("b..")
+    print((wordDictionary.search(".a")))
+    print((wordDictionary.search("..d")))
+    print((wordDictionary.search(".a.")))
+    print((wordDictionary.search("b..")))
 # Your WordDictionary object will be instantiated and called as such:
 # wordDictionary = WordDictionary()
 # wordDictionary.addWord("word")

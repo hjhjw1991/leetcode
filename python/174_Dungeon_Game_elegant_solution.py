@@ -13,26 +13,26 @@ class Solution:
         col=len(dungeon[0])
         below=[0]*(col+1)
         cur=[0]*col
-        for c in xrange(col-1,-1,-1):
+        for c in range(col-1,-1,-1):
             below[c]=max(below[c+1]-dungeon[row-1][c],0)
         if row<2:
             return below[0]+1 if below[0]>0 else 1
-        for r in xrange(row-2,-1,-1):
-            for c in xrange(col-1,-1,-1):
+        for r in range(row-2,-1,-1):
+            for c in range(col-1,-1,-1):
                 if c==col-1:
                     cur[c]=max(below[c]-dungeon[r][c],0)
                 else:
                     cur[c]=max(min(below[c],cur[c+1])-dungeon[r][c],0)
-            print below,cur
+            print((below,cur))
             below=cur
         return cur[0]+1 if cur[0]>0 else 1
 
 so=Solution()
 s=[[0,0,0],[1,1,-1]]
-print so.calculateMinimumHP(s)
+print((so.calculateMinimumHP(s)))
 s=[[2,1],[1,-1]]
-print so.calculateMinimumHP(s)
+print((so.calculateMinimumHP(s)))
 s=[[-2,-3,3],
 [-5,-10,1],
 [10,30,-5]]
-print so.calculateMinimumHP(s)
+print((so.calculateMinimumHP(s)))

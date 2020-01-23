@@ -9,7 +9,7 @@ class Solution:
             curr = head
             while curr is not None:
                 sorted_list.append(curr)
-                curr = curr.next
+                curr = curr.__next__
 
         sorted_list = sorted(sorted_list, key=attrgetter('val'))
         for i, node in enumerate(sorted_list):

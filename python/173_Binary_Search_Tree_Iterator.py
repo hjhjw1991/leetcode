@@ -28,7 +28,7 @@ class BSTIterator:
         return len(self.vals)>0
 
     # @return an integer, the next smallest number
-    def next(self):
+    def __next__(self):
         if self.hasNext():
             return self.vals.pop(0)
     
@@ -40,4 +40,4 @@ root.right.left=TreeNode(4)
 root.left.left=TreeNode(0)
 root.right.right=TreeNode(6)
 i, v = BSTIterator(root), []
-while i.hasNext(): v.append(i.next());print v
+while i.hasNext(): v.append(next(i));print(v)

@@ -9,8 +9,8 @@ class Solution:
             return 1
         below=[1]*n
         cur=[1]*n
-        for r in xrange(m-2,-1,-1):
-            for c in xrange(n-1,-1,-1):
+        for r in range(m-2,-1,-1):
+            for c in range(n-1,-1,-1):
                 if c==n-1:
                     cur[c]=1
                 else:

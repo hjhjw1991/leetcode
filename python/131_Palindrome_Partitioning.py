@@ -14,7 +14,7 @@ class Solution:
             return [[s]]
         pre=[]
         res=[]
-        for i in xrange(1,len(s)+1):
+        for i in range(1,len(s)+1):
             if self.isPalindrome(s[:i]):
                 pre.append(i)
         for x in pre:
@@ -32,7 +32,7 @@ class Test(unittest.TestCase):
         self.s=Solution()
         
     def tearDown(self):
-        print "TestComplete"
+        print("TestComplete")
         
     def genTestCase(self):
         case=[
@@ -47,10 +47,10 @@ class Test(unittest.TestCase):
     def test(self):
         self.genTestCase()
         for case in self.cases:
-            print "testcase: ", case
+            print(("testcase: ", case))
             res=self.s.solve(case)
-            print "result: ",res
-            print len(res)
+            print(("result: ",res))
+            print((len(res)))
             # if assert is needed
             
 unittest.main()

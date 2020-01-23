@@ -9,12 +9,12 @@ class Solution:
     # @param {ListNode} head
     # @return {void} Do not return anything, modify head in-place instead.
     def reorderList(self, head):
-        if not head or not head.next:
+        if not head or not head.__next__:
             return head
         node=[]
         while head:
             node.append(head)
-            head=head.next
+            head=head.__next__
         l,r=0,len(node)-1
         while l<r:
             node[l].next=node[r]
@@ -30,5 +30,5 @@ root.next.next.next=ListNode(4)
 so=Solution()
 so.reorderList(root)
 while root:
-    print root.val
-    root=root.next
+    print((root.val))
+    root=root.__next__

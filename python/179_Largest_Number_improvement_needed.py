@@ -46,7 +46,7 @@ class Solution:
             sort(strnum,cur+1,r)
         if not nums:
             return ""
-        strnums=map(str,nums)
+        strnums=list(map(str,nums))
         sort(strnums,0,len(strnums)-1)
         res="".join(strnums)
         i=0
@@ -66,7 +66,7 @@ class Test(unittest.TestCase):
         self.s=Solution()
         
     def tearDown(self):
-        print "TestComplete"
+        print("TestComplete")
         
     def genTestCase(self):
         self.cases=[
@@ -81,8 +81,8 @@ class Test(unittest.TestCase):
     def test(self):
         self.genTestCase()
         for case in self.cases:
-            print "testcase: ", case
-            print "result: ",self.s.solve(case)
+            print(("testcase: ", case))
+            print(("result: ",self.s.solve(case)))
             # if assert is needed
             
 unittest.main()

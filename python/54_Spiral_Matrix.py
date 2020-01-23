@@ -13,7 +13,7 @@ class Solution:
         if top==down:
             return matrix[0]
         elif left==right:
-            for i in xrange(top,down+1):
+            for i in range(top,down+1):
                 res.append(matrix[i][right])
             return res
         while left<=right and top<=down:
@@ -21,15 +21,15 @@ class Solution:
             top+=1
             if top>down:
                 break
-            for i in xrange(top,down+1):
+            for i in range(top,down+1):
                 res.append(matrix[i][right])
             right-=1
             if right<left:
                 break
-            for i in xrange(right,left-1,-1):
+            for i in range(right,left-1,-1):
                 res.append(matrix[down][i])
             down-=1
-            for i in xrange(down,top-1,-1):
+            for i in range(down,top-1,-1):
                 res.append(matrix[i][left])
             left+=1
         return res
@@ -47,4 +47,4 @@ matrix=[
 [9,10,11,12],
 [13,14,15,16]
 ]
-print so.spiralOrder(matrix)
+print((so.spiralOrder(matrix)))

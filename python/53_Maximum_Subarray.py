@@ -6,7 +6,7 @@ class Solution:
         if length<1:
             return
         maxx=res=nums[0]
-        for i in xrange(1,length):
+        for i in range(1,length):
             maxx=max(maxx+nums[i],nums[i])
             res=max(res,maxx)
         return res

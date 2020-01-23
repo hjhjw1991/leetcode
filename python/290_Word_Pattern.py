@@ -10,7 +10,7 @@ class Solution(object):
             return False
         dic1={}# pattern to str
         dic2={}# str to pattern
-        for i in xrange(len(pattern)):
+        for i in range(len(pattern)):
             if (pattern[i] in dic1 and dic1[pattern[i]]!=strs[i]) or (strs[i] in dic2 and dic2[strs[i]]!=pattern[i]):
                 return False
             else:

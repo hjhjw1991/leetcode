@@ -5,10 +5,10 @@ class Solution:
         if not matrix:
             return
         degree=len(matrix)
-        for layer in xrange(degree/2):
+        for layer in range(degree/2):
             first=layer
             last=degree-1-layer
-            for i in xrange(first,last):
+            for i in range(first,last):
                 offset=i-first
                 top=matrix[first][i]
                 matrix[layer][i]=matrix[last-offset][first]

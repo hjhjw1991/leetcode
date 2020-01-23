@@ -1,10 +1,13 @@
 # coding=utf-8
 import unittest
+
 class RandomListNode(object):
     def __init__(self, x):
         self.label = x
         self.next = None
         self.random = None
+
+
 class Solution(object):
     def solve(self, case):
         return self.copyRandomList(case)
@@ -32,24 +35,26 @@ class Solution(object):
         self.printList(dummy.next)
         self.printRandom(dummy.next)
         return dummy.next
+
     def printRandom(self, head):
         while head.random:
-            print head.label, ".random->",
+            print(head.label, ".random->", end=' ')
             head=head.random
         while head:
-            print "->",head.label,
+            print("->", head.label, end=' ')
             head=head.next
-        print 
+        print()
+
     def printList(self, head):
         while head:
             if head.random:
-                print "(", head.label, ".random->", head.random.label, ")",
+                print("(", head.label, ".random->", head.random.label, ")", end=' ')
             else:
-                print "(", head.label, ".random->null", ")",
+                print("(", head.label, ".random->null", ")", end=' ')
             if head.next:
-                print "->",
+                print("->", end=' ')
             head=head.next
-        print 
+        print() 
         
 class Test(unittest.TestCase):
     #override
@@ -57,7 +62,7 @@ class Test(unittest.TestCase):
         self.s=Solution()
         
     def tearDown(self):
-        print "TestComplete"
+        print("TestComplete")
         
     def genTestCase(self):
         head = RandomListNode(1)
@@ -65,8 +70,8 @@ class Test(unittest.TestCase):
         head.next.next = RandomListNode(3)
         head.next.next.next = RandomListNode(4)
         head.next.next.next.next = RandomListNode(5)
-        head.random=head.next.next
-        head.next.next.next.next.random = head.next.next.next
+        head.random=head.next.__next__
+        head.next.next.next.next.random = head.next.next.__next__
         case=[
         head,
         ]
@@ -75,10 +80,10 @@ class Test(unittest.TestCase):
     def test(self):
         self.genTestCase()
         for case in self.cases:
-            print "testcase: ", case
+            print("testcase: ", case)
             res=self.s.solve(case)
-            print "result: ",res
+            print("result: ",res)
             # if assert is needed
-            
+ 
 unittest.main()
 

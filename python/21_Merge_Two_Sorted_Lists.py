@@ -18,13 +18,13 @@ class Solution:
         while l1 and l2:
             if l1.val>l2.val:
                 p.next=l2
-                l2=l2.next
+                l2=l2.__next__
             else:
                 p.next=l1
-                l1=l1.next
-            p=p.next
+                l1=l1.__next__
+            p=p.__next__
         if l1:
             p.next=l1
         if l2:
             p.next=l2
-        return head.next
+        return head.__next__

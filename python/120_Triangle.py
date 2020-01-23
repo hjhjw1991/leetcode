@@ -21,4 +21,4 @@ triang=[
     [6,5,7],
     [4,1,8,3]]
 s = Solution()
-print s.minimumTotal(triang)
+print((s.minimumTotal(triang)))

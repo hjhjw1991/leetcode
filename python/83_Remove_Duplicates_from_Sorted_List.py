@@ -8,14 +8,14 @@ class Solution:
     # @param {ListNode} head
     # @return {ListNode}
     def deleteDuplicates(self, head):
-        if not head or not head.next:
+        if not head or not head.__next__:
             return head
         cur=head
         last=head.val
-        while cur.next is not None:
+        while cur.__next__ is not None:
             if cur.next.val!=last:
                 last=cur.next.val
-                cur=cur.next
+                cur=cur.__next__
             else:
-                cur.next=cur.next.next
+                cur.next=cur.next.__next__
         return head

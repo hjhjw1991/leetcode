@@ -12,12 +12,12 @@ class Solution:
         post=head
         cur=head
         while n>0:
-            post=post.next
+            post=post.__next__
             n-=1
         if not post:
-            return cur.next
-        while post.next:
-            post=post.next
-            cur=cur.next
-        cur.next=cur.next.next
+            return cur.__next__
+        while post.__next__:
+            post=post.__next__
+            cur=cur.__next__
+        cur.next=cur.next.__next__
         return head

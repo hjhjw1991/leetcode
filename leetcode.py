@@ -25,31 +25,31 @@ def getFileList(path):
     return ret
     
 def dispSource(path=Java):
-    list = getFileList(path)
+    li = getFileList(path)
     dict = {}
     p = re.compile('(^\d+)_')
-    for l in list:
+    for l in li:
         match = p.match(l)
         if match:
             dict[match.group(1)] = True
-    m = max(map(int,dict.keys()))
+    m = max(list(map(int,list(dict.keys()))))
     res = mylist()
-    res.setTotal(m)
-    for i in xrange(1,m+1):
+    res.total = m
+    for i in range(1,m+1):
         key = str(i)
         if not dict.get(key, False):
             res.append(str(key))
-    print path
-    print res
+    print(path)
+    print(res)
 
 def dispNames(path, extension = '.cc'):
-    list = getFileList(path)
+    li = getFileList(path)
     p = re.compile('^\d+')
-    for file in list:
+    for file in li:
         if p.match(file):
             continue
         file = file.replace('_', ' ').replace(extension, '')
-        print file
+        print(file)
     
 # 以带换行的字符串的形式打印列表元素
 def getMyList(self, width=10):
@@ -57,15 +57,21 @@ def getMyList(self, width=10):
     assert type(width) is int, "Invalid width"
     row = len(self)/width
     res = ""
-    for i in xrange(0,len(self),width):
+    for i in range(0,len(self),width):
         res += "\t".join(self[i:i+width])
         res += "\n"
     return res
 
 # 重新定义了list类型，重写__str__方法，原list类型无法直接绑定__str__方法
 class mylist(list):
-    def setTotal(self, total=0):
-        self.total = total
+    @property
+    def total(self):
+        return self._total
+
+    @total.setter
+    def total(self, val):
+        self._total = val
+        
     def __str__(self):
         res = getMyList(self, 20)
         res+= "Solved: %d/%d\nUnlisted: %d/%d"%(self.total - len(self), self.total, len(self), self.total)

@@ -17,19 +17,19 @@ class Solution:
         runner=cur=head
         length=0
         while runner:
-            runner=runner.next
+            runner=runner.__next__
             length+=1
         runner=head
         k=k%length
         if k==0:
             return head
         while k>0:
-            runner=runner.next
+            runner=runner.__next__
             k-=1
-        while runner and runner.next:
-            cur=cur.next
-            runner=runner.next
-        res=cur.next
+        while runner and runner.__next__:
+            cur=cur.__next__
+            runner=runner.__next__
+        res=cur.__next__
         runner.next=head
         cur.next=None
         return res
@@ -40,7 +40,7 @@ class Test(unittest.TestCase):
         self.s=Solution()
         
     def tearDown(self):
-        print "TestComplete"
+        print("TestComplete")
         
     def genTestCase(self):
         case=[]
@@ -52,16 +52,16 @@ class Test(unittest.TestCase):
             head=tmp
         case.append(head)
         while head:
-            print head.val,
-            head=head.next
-        print 
+            print(head.val, end=' ')
+            head=head.__next__
+        print() 
         self.cases=case
         
     def test(self):
         self.genTestCase()
         for case in self.cases:
-            print "testcase: ", case
-            print "result: ",self.s.solve(case,1)
+            print("testcase: ", case)
+            print("result: ",self.s.solve(case,1))
             # if assert is needed
             
 unittest.main()

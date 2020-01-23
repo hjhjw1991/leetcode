@@ -8,7 +8,7 @@ class Solution:
         elif length==1:
             return nums[0]
         minn=maxx=res=nums[0]
-        for i in xrange(1,length):
+        for i in range(1,length):
             tmp=maxx
             maxx=max(minn*nums[i],maxx*nums[i],nums[i])
             minn=min(minn*nums[i],tmp*nums[i],nums[i])

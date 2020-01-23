@@ -50,7 +50,7 @@ class Test(unittest.TestCase):
         self.s=Solution()
         
     def tearDown(self):
-        print "TestComplete"
+        print("TestComplete")
         
     def genTestCase(self):
         self.cases=[
@@ -65,8 +65,8 @@ class Test(unittest.TestCase):
     def test(self):
         self.genTestCase()
         for case in self.cases:
-            print "testcase: ", case
-            print "result: ",self.s.solve(case)
+            print(("testcase: ", case))
+            print(("result: ",self.s.solve(case)))
             # if assert is needed
             
 unittest.main()

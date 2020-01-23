@@ -37,9 +37,9 @@ def printList(head):
     if not head:
         return
     while head.next:
-        print head.val,"->",
+        print(head.val,"->", end=' ')
         head=head.next
-    print head.val
+    print(head.val)
         
 so=Solution()
 head=buildList([1,2,3,4,5,6])

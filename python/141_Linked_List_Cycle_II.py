@@ -9,13 +9,13 @@ class Solution:
     # @param head, a ListNode
     # @return a boolean
     def hasCycle(self, head):
-        if not head or not head.next:
+        if not head or not head.__next__:
             return False
         cur=runner=head
-        while runner and runner.next:
-            cur=cur.next
-            runner=runner.next
-            runner=runner.next
+        while runner and runner.__next__:
+            cur=cur.__next__
+            runner=runner.__next__
+            runner=runner.__next__
             if cur==runner:
                 return True
         return False

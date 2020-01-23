@@ -8,7 +8,7 @@ class Solution:
         s='1'
         if n==1:
             return s
-        for i in xrange(n-1):
+        for i in range(n-1):
             s=self.cnt(s)
         return s
     def cnt(self,s):

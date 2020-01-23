@@ -12,10 +12,10 @@ class Solution:
         if length<2:
             return length
         candies=[1]*length
-        for i in xrange(1,length):
+        for i in range(1,length):
             if ratings[i]>ratings[i-1]:
                 candies[i] = candies[i-1]+1
-        for i in xrange(length-2,-1,-1):
+        for i in range(length-2,-1,-1):
             candies[i]=max(candies[i+1]+1,candies[i]) if ratings[i]>ratings[i+1] else candies[i]
         return sum(candies)
         
@@ -25,7 +25,7 @@ class Test(unittest.TestCase):
         self.s=Solution()
         
     def tearDown(self):
-        print "TestComplete"
+        print("TestComplete")
         
     def genTestCase(self):
         case=[
@@ -40,9 +40,9 @@ class Test(unittest.TestCase):
     def test(self):
         self.genTestCase()
         for case in self.cases:
-            print "testcase: ", case
+            print(("testcase: ", case))
             res=self.s.solve(case)
-            print "result: ",res
+            print(("result: ",res))
             # if assert is needed
             
 unittest.main()
